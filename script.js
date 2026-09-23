@@ -4,13 +4,13 @@
   const canvas = document.getElementById('matrix-canvas');
   const ctx = canvas?.getContext('2d');
   const fontSize = 14;
-  const characters = '01';
+  const characters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>//:;{}[]+-*\\';
   let columns = 0;
   let drops = [];
-  let speeds = [];
   let animationId = null;
-  let lastFrame = 0;
-  const frameDelay = 60;
+  let lastTime = 0;
+  const fps = 60;
+  const interval = 1000 / fps;
 
   function applySavedSettings() {
     const theme = localStorage.getItem('user_theme') || 'dark';
@@ -45,7 +45,6 @@
     localStorage.setItem('user_lang', lang);
     const value = lang === 'id' ? '' : `/id/${lang}`;
     
-    // Perbaikan path cookie agar stabil di GitHub Pages (PC & HP)
     const pathname = window.location.pathname;
     const pathSegments = pathname.split('/').filter(Boolean);
     const repoPath = pathSegments.length > 0 ? `/${pathSegments[0]}/` : '/';
@@ -91,43 +90,46 @@
     canvas.style.height = `${innerHeight}px`;
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     columns = Math.floor(innerWidth / fontSize);
-    
-    // Inisialisasi posisi turun dan variasi kecepatan jatuh per kolom
-    drops = Array.from({ length: columns }, () => Math.random() * -50);
-    speeds = Array.from({ length: columns }, () => 0.6 + Math.random() * 1.2);
+    drops = Array.from({ length: columns }, () => Math.random() * -20);
   }
 
-  function drawMatrix(time = 0) {
+  function drawMatrix(currentTime = 0) {
     if (!canvas || !ctx) return;
-    if (time - lastFrame < frameDelay) { animationId = requestAnimationFrame(drawMatrix); return; }
-    lastFrame = time;
+    
+    animationId = requestAnimationFrame(drawMatrix);
+    
+    const elapsed = currentTime - lastTime;
+    if (elapsed < interval) return;
+    
+    lastTime = currentTime - (elapsed % interval);
+
     const light = body.classList.contains('light-theme');
-    ctx.fillStyle = light ? 'rgba(241,245,249,.2)' : 'rgba(11,15,25,.18)';
+    ctx.fillStyle = light ? 'rgba(241,245,249,.18)' : 'rgba(11,15,25,.15)';
     ctx.fillRect(0, 0, innerWidth, innerHeight);
     ctx.font = `${fontSize}px monospace`;
     
     for (let i = 0; i < drops.length; i++) {
       ctx.fillStyle = light ? '#065f46' : (Math.random() > .9 ? '#b7ffe2' : '#059669');
+      ctx.fillText(characters[Math.floor(Math.random() * characters.length)], i * fontSize, drops[i] * fontSize);
       
-      // Efek pergeseran diagonal menggunakan fungsi sinus pada sumbu X
-      const currentX = (i + Math.sin(drops[i] * 0.04) * 2.5) * fontSize;
-      const currentY = drops[i] * fontSize;
-      
-      ctx.fillText(characters[Math.floor(Math.random() * characters.length)], currentX, currentY);
-      
-      if (currentY > innerHeight && Math.random() > .975) {
+      if (drops[i] * fontSize > innerHeight && Math.random() > .975) {
         drops[i] = 0;
       }
-      drops[i] += speeds[i];
+      drops[i] += 0.75; // Kecepatan turun yang halus dan stabil
     }
-    animationId = requestAnimationFrame(drawMatrix);
   }
 
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) cancelAnimationFrame(animationId);
-    else { lastFrame = 0; animationId = requestAnimationFrame(drawMatrix); }
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+    } else {
+      lastTime = performance.now();
+      animationId = requestAnimationFrame(drawMatrix);
+    }
   });
+
   window.addEventListener('resize', resizeCanvas);
+  
   document.addEventListener('DOMContentLoaded', () => {
     applySavedSettings();
     if (window.lucide) lucide.createIcons();
