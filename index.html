@@ -1,81 +1,79 @@
-<section class="links-section">
-  <h2 class="section-title">Networks &amp; Socials</h2>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indra Permana — cybersecurity, photography, billiard, and current vibe." />
+  <meta name="theme-color" content="#0b0f19" />
+  <title>Indra Permana | Cybersecurity & Personal Links</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
 
-  <div class="grid-container">
+<body class="dark-theme">
 
-    <!-- LinkedIn -->
-    <a
-      href="https://www.linkedin.com/in/indpermana"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="link-card"
-    >
-      <div class="card-icon brand-icon">
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.54 20.45H7.1V8.99H3.54v11.46Z"
-          />
-        </svg>
-      </div>
-
-      <div class="card-text">
-        <span class="card-title">LinkedIn</span>
-        <span class="card-sub">linkedin.com/in/indpermana</span>
-      </div>
-
-      <i
-        data-lucide="arrow-up-right"
-        class="arrow-icon"
-      ></i>
-    </a>
-
-    <!-- Instagram -->
-    <a
-      href="https://www.instagram.com/indpermna"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="link-card"
-    >
-      <div class="card-icon brand-icon">
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="5"
-          ></rect>
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          ></circle>
-
-          <circle
-            cx="17.5"
-            cy="6.5"
-            r="1"
-          ></circle>
-        </svg>
-      </div>
-
-      <div class="card-text">
-        <span class="card-title">Instagram</span>
-        <span class="card-sub">@indpermna</span>
-      </div>
-
-      <i
-        data-lucide="arrow-up-right"
-        class="arrow-icon"
-      ></i>
-    </a>
-
+  <div class="cyber-background" aria-hidden="true">
+    <canvas id="matrix-canvas"></canvas>
   </div>
-</section>
+
+  <main class="container">
+
+    <div class="terminal-bar">
+
+      <div
+        class="terminal-dots"
+        onclick="toggleSecretWindow()"
+        title="Click to clear screen"
+        role="button"
+        tabindex="0"
+        onkeydown="if(event.key==='Enter')toggleSecretWindow()"
+      >
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+
+      <div class="header-controls">
+
+        <button
+          class="theme-toggle-btn"
+          onclick="toggleTheme()"
+          title="Toggle dark/light mode"
+          aria-label="Toggle dark/light mode"
+          id="theme-btn"
+        >
+          <i data-lucide="sun"></i>
+        </button>
+
+        <div class="lang-switcher" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">
+            EN
+          </button>
+
+          <button class="lang-btn" data-lang="id" onclick="changeLanguage('id')">
+            ID
+          </button>
+
+          <button class="lang-btn" data-lang="jw" onclick="changeLanguage('jw')">
+            JV
+          </button>
+        </div>
+
+        <div id="google_translate_element"></div>
+
+      </div>
+    </div>
+
+    <header class="profile-header">
+
+      <div class="avatar-container">
+        <div class="avatar-radar-ring"></div>
+
+        <img
+          src="avatar.jpg"
+          alt="Indra Permana"
+          class="avatar"
