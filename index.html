@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indra Permana — cybersecurity, photography, billiard, and current vibe." />
+  <meta name="theme-color" content="#0b0f19" />
+  <title>Indra Permana | Cybersecurity & Personal Links</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+  <div class="cyber-background" aria-hidden="true"><canvas id="matrix-canvas"></canvas></div>
+  <main class="container">
+    <div class="terminal-bar">
+      <div class="terminal-dots" onclick="toggleSecretWindow()" title="Click to clear screen" role="button" tabindex="0" onkeydown="if(event.key==='Enter')toggleSecretWindow()">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      </div>
+      <div class="header-controls">
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode" aria-label="Toggle dark/light mode" id="theme-btn"><i data-lucide="sun"></i></button>
+        <div class="lang-switcher" aria-label="Language selector">
+          <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="id" onclick="changeLanguage('id')">ID</button>
+          <button class="lang-btn" data-lang="jw" onclick="changeLanguage('jw')">JV</button>
+        </div>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+    <header class="profile-header">
+      <div class="avatar-container"><div class="avatar-radar-ring"></div><img src="avatar.jpg" alt="Indra Permana" class="avatar"><span class="status-indicator" title="System online"></span></div>
+      <h1 class="profile-name">Indra Permana</h1>
+      <p class="profile-bio">IT Security &amp; Network Engineer <span class="divider">•</span> Cyber Security</p>
+      <div class="collaboration-badge"><span class="pulse-dot"></span> Open for Tech Collaboration</div>
+    </header>
+    <section class="links-section"><h2 class="section-title">Networks &amp; Socials</h2><div class="grid-container">
+      <a href="https://www.linkedin.com/in/indpermana" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="linkedin"></i></div><div class="card-text"><span class="card-title">LinkedIn</span><span class="card-sub">linkedin.com/in/indpermana</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
+      <a href="https://www.instagram.com/indpermna" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="instagram"></i></div><div class="card-text"><span class="card-title">Instagram</span><span class="card-sub">@indpermna</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
+    </div></section>
+    <section class="links-section"><h2 class="section-title">Verified Certifications</h2><div class="cert-grid">
+      <div class="link-card" onclick="openCertModal('CompTIA Security+', 'CompTIA', 'Sertifikasi standar industri global yang mengesahkan kompetensi inti dalam keamanan siber, manajemen ancaman, mitigasi risiko, serta arsitektur keamanan jaringan.', ['Network Security','Threat Analysis','Risk Management','Cryptography'], 'https://www.credly.com/badges/457b99df-3268-496a-ba3c-fafbfa89d438')"><div class="card-icon"><i data-lucide="award"></i></div><div class="card-text"><span class="card-title">CompTIA Security+</span><span class="card-sub">CompTIA</span></div><i data-lucide="info" class="arrow-icon"></i></div>
+      <div class="link-card" onclick="openCertModal('Fortinet Associate', 'Fortinet', 'Sertifikasi foundational mengenai konsep keamanan jaringan, pengoperasian firewall tingkat lanjut, serta pemahaman infrastruktur keamanan perimeter.', ['Firewall Concepts','Network Perimeter','Security Operations'], 'https://www.credly.com/badges/de81bd73-18c7-402d-96da-bb006546b565')"><div class="card-icon"><i data-lucide="shield-check"></i></div><div class="card-text"><span class="card-title">Fortinet Associate</span><span class="card-sub">Fortinet</span></div><i data-lucide="info" class="arrow-icon"></i></div>
+      <div class="link-card" onclick="openCertModal('Forcepoint DLP Admin', 'Forcepoint', 'Keahlian dalam manajemen Data Loss Prevention (DLP), perlindungan data sensitif, serta pencegahan kebocoran informasi.', ['Data Protection','DLP Policies','Compliance','Endpoint Security'], 'https://education.forcepoint.com/achievements/certificate/242288211')"><div class="card-icon"><i data-lucide="lock"></i></div><div class="card-text"><span class="card-title">Forcepoint DLP Admin</span><span class="card-sub">Forcepoint</span></div><i data-lucide="info" class="arrow-icon"></i></div>
+      <div class="link-card" onclick="openCertModal('Ransomware Defense', 'SOC Radar', 'Pemahaman mitigasi, analisis vektor serangan ransomware, serta prosedur pemulihan sistem dari ancaman enkripsi berbahaya.', ['Incident Response','Malware Analysis','Threat Intelligence'], 'https://credsverse.com/credentials/7d415941-2272-42dd-b196-2679165fcaf9')"><div class="card-icon"><i data-lucide="file-warning"></i></div><div class="card-text"><span class="card-title">Ransomware Defense</span><span class="card-sub">SOC Radar</span></div><i data-lucide="info" class="arrow-icon"></i></div>
+      <div class="link-card" onclick="openCertModal('GenAI for SOC Analysts', 'SOC Radar', 'Pemanfaatan Generative AI untuk mengoptimalkan operasional SOC, otomatisasi analisis log, dan deteksi ancaman.', ['Generative AI','SOC Automation','Log Analysis','Threat Hunting'], 'https://credsverse.com/credentials/5c8c77be-cf28-4205-af31-e7ab9b79bb4b?preview=1')"><div class="card-icon"><i data-lucide="cpu"></i></div><div class="card-text"><span class="card-title">GenAI for SOC Analysts</span><span class="card-sub">SOC Radar</span></div><i data-lucide="info" class="arrow-icon"></i></div>
+    </div></section>
+    <section class="links-section"><h2 class="section-title">Hobbies</h2><div class="grid-container">
+      <div class="link-card"><div class="card-icon"><i data-lucide="camera"></i></div><div class="card-text"><span class="card-title">Street Photography</span></div></div>
+      <div class="link-card"><div class="card-icon"><i data-lucide="circle-dot"></i></div><div class="card-text"><span class="card-title">Billiard</span></div></div>
+    </div></section>
+    <section class="links-section"><h2 class="section-title">Current Vibe</h2><div class="music-card"><div class="music-album-art"><img src="album.jpg" alt="Album art for Making Love Out of Nothing At All"></div><div class="music-info"><span class="music-label">FAVORITE TRACK</span><span class="music-title">Making Love Out of Nothing At All</span><span class="music-artist">Air Supply</span></div><div class="sound-wave" aria-label="Now playing"><span></span><span></span><span></span></div></div></section>
+    <footer class="profile-footer"><p>&copy; 2026 Indra Permana. Secured &amp; Designed with Precision.</p></footer>
+  </main>
+  <div class="modal-overlay" id="cert-modal" onclick="closeCertModal(event)" role="dialog" aria-modal="true" aria-labelledby="modal-title-text"><div class="modal-box" onclick="event.stopPropagation()"><div class="modal-header"><span class="modal-issuer" id="modal-issuer-text">ISSUER</span><button class="modal-close-btn" onclick="closeCertModalDirect()" aria-label="Close"><i data-lucide="x"></i></button></div><h3 class="modal-title" id="modal-title-text">Certificate Title</h3><p class="modal-desc" id="modal-desc-text">Description goes here...</p><div class="modal-skills-title">KEY SKILLS &amp; COMPETENCIES</div><div class="modal-skills-list" id="modal-skills-container"></div><div class="modal-actions"><a href="#" id="modal-verify-link" target="_blank" rel="noopener noreferrer" class="modal-btn-verify">Verify Credential <i data-lucide="external-link"></i></a></div></div></div>
+  <button id="secret-restore-btn" onclick="toggleSecretWindow()">&gt; exit_shell</button>
+  <script src="script.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
