@@ -29,6 +29,12 @@
     localStorage.setItem('user_lang', lang);
     const value = lang === 'id' ? '' : `/id/${lang}`;
     document.cookie = `googtrans=${value}; path=/; max-age=31536000`;
+    
+    // Fallback jika widget google translate gagal/tidak aktif
+    if (typeof google === 'undefined' || !google.translate) {
+      alert('Fitur terjemahan memerlukan koneksi stabil ke layanan Google Translate.');
+      return;
+    }
     location.reload();
   };
 
@@ -55,7 +61,17 @@
   window.closeCertModalDirect = () => document.getElementById('cert-modal').classList.remove('active');
 
   window.googleTranslateElementInit = function () {
-    if (window.google?.translate) new google.translate.TranslateElement({ pageLanguage: 'id', includedLanguages: 'id,en,jw', autoDisplay: false }, 'google_translate_element');
+    try {
+      if (window.google?.translate) {
+        new google.translate.TranslateElement({ 
+          pageLanguage: 'id', 
+          includedLanguages: 'id,en,jw', 
+          autoDisplay: false 
+        }, 'google_translate_element');
+      }
+    } catch (e) {
+      console.error('Gagal menginisialisasi Google Translate:', e);
+    }
   };
 
   function resizeCanvas() {
@@ -92,9 +108,20 @@
     else { lastFrame = 0; animationId = requestAnimationFrame(drawMatrix); }
   });
   window.addEventListener('resize', resizeCanvas);
+  
   document.addEventListener('DOMContentLoaded', () => {
     applySavedSettings();
-    if (window.lucide) lucide.createIcons();
+    
+    // Paksa render ulang ikon Lucide agar ikon medsos (LinkedIn & Instagram) muncul
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons();
+    } else {
+      // Fallback jika pustaka agak terlambat dimuat
+      window.addEventListener('load', () => {
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
     resizeCanvas();
     animationId = requestAnimationFrame(drawMatrix);
   });
