@@ -134,3 +134,25 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-color); 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+/* Ikon LinkedIn dan Instagram */
+.brand-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.brand-icon svg path {
+  fill: var(--accent-color);
+  stroke: none;
+}
+
+.brand-icon svg rect,
+.brand-icon svg circle {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 1.8;
+}
+
+.brand-icon svg circle:last-child {
+  fill: var(--accent-color);
+  stroke: none;
+}
