@@ -353,3 +353,194 @@
             'https://credsverse.com/credentials/5c8c77be-cf28-4205-af31-e7ab9b79bb4b?preview=1'
           )"
         >
+          <div class="card-icon">
+            <i data-lucide="cpu"></i>
+          </div>
+
+          <div class="card-text">
+            <span class="card-title">
+              GenAI for SOC Analysts
+            </span>
+
+            <span class="card-sub">
+              SOC Radar
+            </span>
+          </div>
+
+          <i
+            data-lucide="info"
+            class="arrow-icon"
+          ></i>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="links-section">
+
+      <h2 class="section-title" data-i18n="hobbies">
+        Hobbies
+      </h2>
+
+      <div class="grid-container">
+
+        <div class="link-card">
+          <div class="card-icon">
+            <i data-lucide="camera"></i>
+          </div>
+
+          <div class="card-text">
+            <span class="card-title">
+              Street Photography
+            </span>
+          </div>
+        </div>
+
+        <div class="link-card">
+          <div class="card-icon">
+            <i data-lucide="circle-dot"></i>
+          </div>
+
+          <div class="card-text">
+            <span class="card-title">
+              Billiard
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="links-section">
+
+      <h2 class="section-title" data-i18n="currentVibe">
+        Current Vibe
+      </h2>
+
+      <div class="music-card">
+
+        <div class="music-album-art">
+          <img
+            src="album.jpg"
+            alt="Album art for Making Love Out of Nothing At All"
+          />
+        </div>
+
+        <div class="music-info">
+          <span class="music-label">
+            FAVORITE TRACK
+          </span>
+
+          <span class="music-title">
+            Making Love Out of Nothing At All
+          </span>
+
+          <span class="music-artist">
+            Air Supply
+          </span>
+        </div>
+
+        <div
+          class="sound-wave"
+          aria-label="Now playing"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="profile-footer">
+      <p>
+        &copy; 2026 Indra Permana. Secured &amp; Designed with Precision.
+      </p>
+    </footer>
+
+  </main>
+
+  <div
+    class="modal-overlay"
+    id="cert-modal"
+    onclick="closeCertModal(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title-text"
+  >
+    <div
+      class="modal-box"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="modal-header">
+
+        <span
+          class="modal-issuer"
+          id="modal-issuer-text"
+        >
+          ISSUER
+        </span>
+
+        <button
+          class="modal-close-btn"
+          onclick="closeCertModalDirect()"
+          aria-label="Close"
+        >
+          <i data-lucide="x"></i>
+        </button>
+
+      </div>
+
+      <h3
+        class="modal-title"
+        id="modal-title-text"
+      >
+        Certificate Title
+      </h3>
+
+      <p
+        class="modal-desc"
+        id="modal-desc-text"
+      >
+        Description goes here...
+      </p>
+
+      <div class="modal-skills-title">
+        KEY SKILLS &amp; COMPETENCIES
+      </div>
+
+      <div
+        class="modal-skills-list"
+        id="modal-skills-container"
+      ></div>
+
+      <div class="modal-actions">
+
+        <a
+          href="#"
+          id="modal-verify-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-btn-verify"
+        >
+          Verify Credential
+          <i data-lucide="external-link"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <button
+    id="secret-restore-btn"
+    onclick="toggleSecretWindow()"
+  >
+    &gt; exit_shell
+  </button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
