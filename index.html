@@ -36,10 +36,25 @@
       <p class="profile-bio">IT Security &amp; Network Engineer <span class="divider">•</span> Cyber Security</p>
       <div class="collaboration-badge"><span class="pulse-dot"></span> Open for Tech Collaboration</div>
     </header>
-    <section class="links-section"><h2 class="section-title">Networks &amp; Socials</h2><div class="grid-container">
-      <a href="https://www.linkedin.com/in/indpermana" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="linkedin"></i></div><div class="card-text"><span class="card-title">LinkedIn</span><span class="card-sub">linkedin.com/in/indpermana</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
-      <a href="https://www.instagram.com/indpermna" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="instagram"></i></div><div class="card-text"><span class="card-title">Instagram</span><span class="card-sub">@indpermna</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
-    </div></section>
+    <section class="links-section">
+      <h2 class="section-title">Networks &amp; Socials</h2>
+      <div class="grid-container">
+        <a href="https://www.linkedin.com/in/indpermana" target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="card-text"><span class="card-title">LinkedIn</span><span class="card-sub">linkedin.com/in/indpermana</span></div>
+          <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+        </a>
+        <a href="https://www.instagram.com/indpermna" target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </div>
+          <div class="card-text"><span class="card-title">Instagram</span><span class="card-sub">@indpermna</span></div>
+          <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+        </a>
+      </div>
+    </section>
     <section class="links-section"><h2 class="section-title">Verified Certifications</h2><div class="cert-grid">
       <div class="link-card" onclick="openCertModal('CompTIA Security+', 'CompTIA', 'Sertifikasi standar industri global yang mengesahkan kompetensi inti dalam keamanan siber, manajemen ancaman, mitigasi risiko, serta arsitektur keamanan jaringan.', ['Network Security','Threat Analysis','Risk Management','Cryptography'], 'https://www.credly.com/badges/457b99df-3268-496a-ba3c-fafbfa89d438')"><div class="card-icon"><i data-lucide="award"></i></div><div class="card-text"><span class="card-title">CompTIA Security+</span><span class="card-sub">CompTIA</span></div><i data-lucide="info" class="arrow-icon"></i></div>
       <div class="link-card" onclick="openCertModal('Fortinet Associate', 'Fortinet', 'Sertifikasi foundational mengenai konsep keamanan jaringan, pengoperasian firewall tingkat lanjut, serta pemahaman infrastruktur keamanan perimeter.', ['Firewall Concepts','Network Perimeter','Security Operations'], 'https://www.credly.com/badges/de81bd73-18c7-402d-96da-bb006546b565')"><div class="card-icon"><i data-lucide="shield-check"></i></div><div class="card-text"><span class="card-title">Fortinet Associate</span><span class="card-sub">Fortinet</span></div><i data-lucide="info" class="arrow-icon"></i></div>
@@ -52,7 +67,7 @@
       <div class="link-card"><div class="card-icon"><i data-lucide="circle-dot"></i></div><div class="card-text"><span class="card-title">Billiard</span></div></div>
     </div></section>
     <section class="links-section"><h2 class="section-title">Current Vibe</h2><div class="music-card"><div class="music-album-art"><img src="album.jpg" alt="Album art for Making Love Out of Nothing At All"></div><div class="music-info"><span class="music-label">FAVORITE TRACK</span><span class="music-title">Making Love Out of Nothing At All</span><span class="music-artist">Air Supply</span></div><div class="sound-wave" aria-label="Now playing"><span></span><span></span><span></span></div></div></section>
-    <footer class="profile-footer"><p>&copy; 2026 Indra Permana. Secured &amp; Designed with Precision.</p></footer>
+    <footer class="profile-profile-footer profile-footer"><p>&copy; 2026 Indra Permana. Secured &amp; Designed with Precision.</p></footer>
   </main>
   <div class="modal-overlay" id="cert-modal" onclick="closeCertModal(event)" role="dialog" aria-modal="true" aria-labelledby="modal-title-text"><div class="modal-box" onclick="event.stopPropagation()"><div class="modal-header"><span class="modal-issuer" id="modal-issuer-text">ISSUER</span><button class="modal-close-btn" onclick="closeCertModalDirect()" aria-label="Close"><i data-lucide="x"></i></button></div><h3 class="modal-title" id="modal-title-text">Certificate Title</h3><p class="modal-desc" id="modal-desc-text">Description goes here...</p><div class="modal-skills-title">KEY SKILLS &amp; COMPETENCIES</div><div class="modal-skills-list" id="modal-skills-container"></div><div class="modal-actions"><a href="#" id="modal-verify-link" target="_blank" rel="noopener noreferrer" class="modal-btn-verify">Verify Credential <i data-lucide="external-link"></i></a></div></div></div>
   <button id="secret-restore-btn" onclick="toggleSecretWindow()">&gt; exit_shell</button>
