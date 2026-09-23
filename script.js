@@ -4,12 +4,13 @@
   const canvas = document.getElementById('matrix-canvas');
   const ctx = canvas?.getContext('2d');
   const fontSize = 14;
-  const characters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>//:;{}[]+-*\\';
+  const characters = '01';
   let columns = 0;
   let drops = [];
+  let speeds = [];
   let animationId = null;
   let lastFrame = 0;
-  const frameDelay = 70;
+  const frameDelay = 60;
 
   function applySavedSettings() {
     const theme = localStorage.getItem('user_theme') || 'dark';
@@ -90,7 +91,10 @@
     canvas.style.height = `${innerHeight}px`;
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     columns = Math.floor(innerWidth / fontSize);
-    drops = Array.from({ length: columns }, () => Math.random() * -20);
+    
+    // Inisialisasi posisi turun dan variasi kecepatan jatuh per kolom
+    drops = Array.from({ length: columns }, () => Math.random() * -50);
+    speeds = Array.from({ length: columns }, () => 0.6 + Math.random() * 1.2);
   }
 
   function drawMatrix(time = 0) {
@@ -101,11 +105,20 @@
     ctx.fillStyle = light ? 'rgba(241,245,249,.2)' : 'rgba(11,15,25,.18)';
     ctx.fillRect(0, 0, innerWidth, innerHeight);
     ctx.font = `${fontSize}px monospace`;
+    
     for (let i = 0; i < drops.length; i++) {
       ctx.fillStyle = light ? '#065f46' : (Math.random() > .9 ? '#b7ffe2' : '#059669');
-      ctx.fillText(characters[Math.floor(Math.random() * characters.length)], i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > innerHeight && Math.random() > .975) drops[i] = 0;
-      drops[i]++;
+      
+      // Efek pergeseran diagonal menggunakan fungsi sinus pada sumbu X
+      const currentX = (i + Math.sin(drops[i] * 0.04) * 2.5) * fontSize;
+      const currentY = drops[i] * fontSize;
+      
+      ctx.fillText(characters[Math.floor(Math.random() * characters.length)], currentX, currentY);
+      
+      if (currentY > innerHeight && Math.random() > .975) {
+        drops[i] = 0;
+      }
+      drops[i] += speeds[i];
     }
     animationId = requestAnimationFrame(drawMatrix);
   }
