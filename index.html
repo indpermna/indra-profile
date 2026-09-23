@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Pindahkan ke bawah atau pastikan termuat dengan atribut defer/async jika diperlukan, namun tetap biarkan pustakanya ada -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="dark-theme">
@@ -36,10 +37,21 @@
       <p class="profile-bio">IT Security &amp; Network Engineer <span class="divider">•</span> Cyber Security</p>
       <div class="collaboration-badge"><span class="pulse-dot"></span> Open for Tech Collaboration</div>
     </header>
-    <section class="links-section"><h2 class="section-title">Networks &amp; Socials</h2><div class="grid-container">
-      <a href="https://www.linkedin.com/in/indpermana" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="linkedin"></i></div><div class="card-text"><span class="card-title">LinkedIn</span><span class="card-sub">linkedin.com/in/indpermana</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
-      <a href="https://www.instagram.com/indpermna" target="_blank" rel="noopener noreferrer" class="link-card"><div class="card-icon"><i data-lucide="instagram"></i></div><div class="card-text"><span class="card-title">Instagram</span><span class="card-sub">@indpermna</span></div><i data-lucide="arrow-up-right" class="arrow-icon"></i></a>
-    </div></section>
+    <section class="links-section">
+      <h2 class="section-title">Networks &amp; Socials</h2>
+      <div class="grid-container">
+        <a href="https://www.linkedin.com/in/indpermana" target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="card-icon"><i data-lucide="linkedin"></i></div>
+          <div class="card-text"><span class="card-title">LinkedIn</span><span class="card-sub">linkedin.com/in/indpermana</span></div>
+          <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+        </a>
+        <a href="https://www.instagram.com/indpermna" target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="card-icon"><i data-lucide="instagram"></i></div>
+          <div class="card-text"><span class="card-title">Instagram</span><span class="card-sub">@indpermna</span></div>
+          <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+        </a>
+      </div>
+    </section>
     <section class="links-section"><h2 class="section-title">Verified Certifications</h2><div class="cert-grid">
       <div class="link-card" onclick="openCertModal('CompTIA Security+', 'CompTIA', 'Sertifikasi standar industri global yang mengesahkan kompetensi inti dalam keamanan siber, manajemen ancaman, mitigasi risiko, serta arsitektur keamanan jaringan.', ['Network Security','Threat Analysis','Risk Management','Cryptography'], 'https://www.credly.com/badges/457b99df-3268-496a-ba3c-fafbfa89d438')"><div class="card-icon"><i data-lucide="award"></i></div><div class="card-text"><span class="card-title">CompTIA Security+</span><span class="card-sub">CompTIA</span></div><i data-lucide="info" class="arrow-icon"></i></div>
       <div class="link-card" onclick="openCertModal('Fortinet Associate', 'Fortinet', 'Sertifikasi foundational mengenai konsep keamanan jaringan, pengoperasian firewall tingkat lanjut, serta pemahaman infrastruktur keamanan perimeter.', ['Firewall Concepts','Network Perimeter','Security Operations'], 'https://www.credly.com/badges/de81bd73-18c7-402d-96da-bb006546b565')"><div class="card-icon"><i data-lucide="shield-check"></i></div><div class="card-text"><span class="card-title">Fortinet Associate</span><span class="card-sub">Fortinet</span></div><i data-lucide="info" class="arrow-icon"></i></div>
