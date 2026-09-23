@@ -15,7 +15,22 @@
     const theme = localStorage.getItem('user_theme') || 'dark';
     body.classList.remove('dark-theme', 'light-theme');
     body.classList.add(`${theme}-theme`);
-    const lang = localStorage.getItem('user_lang') || 'id';
+    
+    // Default bahasa Inggris ('en') untuk kunjungan pertama
+    const savedLang = localStorage.getItem('user_lang');
+    const lang = savedLang || 'en';
+    
+    if (!savedLang) {
+      const value = '/id/en';
+      const pathname = window.location.pathname;
+      const pathSegments = pathname.split('/').filter(Boolean);
+      const repoPath = pathSegments.length > 0 ? `/${pathSegments[0]}/` : '/';
+      
+      document.cookie = `googtrans=${value}; path=/; max-age=31536000`;
+      document.cookie = `googtrans=${value}; path=${repoPath}; max-age=31536000`;
+      localStorage.setItem('user_lang', 'en');
+    }
+
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
   }
 
@@ -28,7 +43,15 @@
   window.changeLanguage = function (lang) {
     localStorage.setItem('user_lang', lang);
     const value = lang === 'id' ? '' : `/id/${lang}`;
+    
+    // Perbaikan path cookie agar stabil di GitHub Pages (PC & HP)
+    const pathname = window.location.pathname;
+    const pathSegments = pathname.split('/').filter(Boolean);
+    const repoPath = pathSegments.length > 0 ? `/${pathSegments[0]}/` : '/';
+    
     document.cookie = `googtrans=${value}; path=/; max-age=31536000`;
+    document.cookie = `googtrans=${value}; path=${repoPath}; max-age=31536000`;
+    
     location.reload();
   };
 
